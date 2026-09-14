@@ -26,7 +26,7 @@ export const FeeEstimator: React.FC<FeeEstimatorProps> = ({ onApplyScopeToBookin
     },
     {
       id: 'onsite-partner',
-      name: 'Dedicated On-Site Partner Deployment (Century City / Client HQ)',
+      name: 'Dedicated On-Site Partner Deployment (Nairobi / Client HQ)',
       description: 'In-person operational oversight and C-suite sprint workshops twice weekly.',
       multiplier: 0.25
     },

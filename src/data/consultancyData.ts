@@ -10,51 +10,7 @@ export const PARTNERS: Partner[] = [
     credentials: ['13 Years Executive Experience', 'Standard Chartered Bank Leadership Alumna'],
     priorExperience: ['Standard Chartered Bank Leadership Roles', 'Board & Executive Governance Advisory'],
     education: 'Master’s Degree, University of Kent (UK); Bachelor’s Degree, Strathmore University (Kenya)',
-    email: 'linda.aredo@laconsultancy.com'
-  },
-  {
-    id: 'elena-rostova',
-    name: 'Elena Rostova',
-    role: 'Senior Managing Partner',
-    practiceArea: 'Corporate Growth & M&A Strategy',
-    bio: 'Over 18 years advising Fortune 500 boards and fast-growing technology enterprises on multi-billion dollar market expansions, divestitures, and strategic repositioning.',
-    credentials: ['Top 50 Women in Management Consulting', 'Board Member, SoCal Tech Alliance'],
-    priorExperience: ['Former Engagement Partner, McKinsey & Company', 'VP Corporate Development, Techstars Network'],
-    education: 'MBA, Stanford Graduate School of Business; B.S. Economics, UC Berkeley',
-    email: 'elena.rostova@laconsultancy.com'
-  },
-  {
-    id: 'marcus-vance',
-    name: 'Marcus Vance',
-    role: 'Partner, Head of Operations & Performance',
-    practiceArea: 'Operational Turnaround & Margin Optimization',
-    bio: 'Specialist in enterprise unit economics, supply chain resilience, and operational restructuring. Has steered 45+ turnarounds across media, manufacturing, and healthcare.',
-    credentials: ['Certified Turnaround Professional (CTP)', 'Lean Six Sigma Master Black Belt'],
-    priorExperience: ['Senior Director, Alvarez & Marsal', 'VP Operations, SpaceX Supplier Network'],
-    education: 'M.S. Industrial Engineering, MIT; B.S. Mechanical Engineering, UCLA',
-    email: 'marcus.vance@laconsultancy.com'
-  },
-  {
-    id: 'sarah-chen',
-    name: 'Dr. Sarah Chen',
-    role: 'Partner, Digital Transformation & AI Strategy',
-    practiceArea: 'Digital Modernization & Enterprise AI',
-    bio: 'Advises C-level executives on turning legacy systems into modern competitive moats, generative AI integration, enterprise cloud governance, and technical talent architecture.',
-    credentials: ['Former Advisor to California Innovation Council', 'Published Author on AI Governance'],
-    priorExperience: ['Principal Technology Strategist, Boston Consulting Group (BCG)', 'Head of Data Platforms, Netflix'],
-    education: 'Ph.D. Computer Science & Decision Systems, Caltech; B.S., USC',
-    email: 'sarah.chen@laconsultancy.com'
-  },
-  {
-    id: 'david-sterling',
-    name: 'David Sterling',
-    role: 'Partner, Capital Strategy & Commercial Due Diligence',
-    practiceArea: 'Private Equity & Capital Advisory',
-    bio: 'Guided over $4.2B in transaction volume across commercial due diligence, debt restructuring, and growth equity advisory for leading institutional funds.',
-    credentials: ['Chartered Financial Analyst (CFA)', 'Member, Association for Corporate Growth (ACG Los Angeles)'],
-    priorExperience: ['Managing Director, Goldman Sachs Merchant Banking', 'Engagement Director, Bain & Company'],
-    education: 'MBA, Wharton School of Business; B.A. Finance, Columbia University',
-    email: 'david.sterling@laconsultancy.com'
+    email: 'info@laconsultancy.co.ke'
   }
 ];
 
@@ -354,24 +310,17 @@ export const ENGAGEMENT_MODELS = [
 
 export const OFFICE_LOCATIONS = [
   {
-    name: 'Century City Flagship',
-    address: '1999 Avenue of the Stars, Suite 2800',
-    city: 'Los Angeles, CA 90067',
-    phone: '+1 (310) 844-3200',
-    hours: 'Mon – Fri, 7:30 AM – 6:30 PM PST'
+    name: 'Nairobi Executive Headquarters',
+    address: 'Riverside Drive, Westlands',
+    city: 'Nairobi, Kenya',
+    phone: '+254 723 821985',
+    hours: 'Mon – Fri, 8:00 AM – 5:30 PM EAT'
   },
   {
-    name: 'Downtown Los Angeles (DTLA)',
-    address: '777 South Figueroa Street, 41st Floor',
-    city: 'Los Angeles, CA 90017',
-    phone: '+1 (213) 980-5500',
-    hours: 'Mon – Fri, 8:00 AM – 6:00 PM PST'
-  },
-  {
-    name: 'Silicon Beach Hub',
-    address: '13160 Mindanao Way, Suite 400',
-    city: 'Marina del Rey, CA 90292',
-    phone: '+1 (424) 222-7800',
-    hours: 'Mon – Fri, 8:30 AM – 5:30 PM PST'
+    name: 'Upper Hill Advisory Suite',
+    address: 'Kilimani & Upper Hill Commercial Precinct',
+    city: 'Nairobi, Kenya',
+    phone: '+254 723 821985',
+    hours: 'Mon – Fri, 8:30 AM – 5:00 PM EAT'
   }
 ];

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { MapPin, Phone, Mail, ArrowUp, Send, CheckCircle2 } from 'lucide-react';
+import { MapPin, Phone, Mail, ArrowUp, Send, CheckCircle2, Linkedin, Facebook, Twitter, MessageCircle } from 'lucide-react';
 
 export const Footer: React.FC = () => {
   const [email, setEmail] = useState('');
@@ -212,8 +212,7 @@ export const Footer: React.FC = () => {
                 <div>
                   <h4 className="font-bold text-white text-sm">Our address:</h4>
                   <p className="text-[#9CB3AD] text-xs leading-relaxed mt-0.5">
-                    Nairobi, Kenya<br />
-                    Pan-African &amp; Regional Advisory
+                    Nairobi, Kenya
                   </p>
                 </div>
               </div>
@@ -260,39 +259,43 @@ export const Footer: React.FC = () => {
             Copyright © {new Date().getFullYear()} Linda Aredo Consultancy. All rights reserved.
           </div>
 
-          {/* Social Links (All Caps) */}
-          <div className="flex items-center gap-6 text-xs font-semibold text-[#9CB3AD]">
+          {/* Social Links Icons */}
+          <div className="flex items-center gap-3 text-[#9CB3AD]">
             <a
               href="https://linkedin.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="hover:text-[#7BF0D4] transition-colors"
+              aria-label="LinkedIn"
+              className="w-9 h-9 rounded-full bg-teal-900/40 hover:bg-[#0C685E] border border-teal-700/50 hover:border-[#7BF0D4] text-[#9CB3AD] hover:text-[#7BF0D4] flex items-center justify-center transition-all cursor-pointer shadow-sm group"
             >
-              LINKEDIN
+              <Linkedin className="w-4 h-4 group-hover:scale-110 transition-transform" />
             </a>
             <a
               href="https://facebook.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="hover:text-[#7BF0D4] transition-colors"
+              aria-label="Facebook"
+              className="w-9 h-9 rounded-full bg-teal-900/40 hover:bg-[#0C685E] border border-teal-700/50 hover:border-[#7BF0D4] text-[#9CB3AD] hover:text-[#7BF0D4] flex items-center justify-center transition-all cursor-pointer shadow-sm group"
             >
-              FACEBOOK
+              <Facebook className="w-4 h-4 group-hover:scale-110 transition-transform" />
             </a>
             <a
               href="https://twitter.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="hover:text-[#7BF0D4] transition-colors"
+              aria-label="Twitter / X"
+              className="w-9 h-9 rounded-full bg-teal-900/40 hover:bg-[#0C685E] border border-teal-700/50 hover:border-[#7BF0D4] text-[#9CB3AD] hover:text-[#7BF0D4] flex items-center justify-center transition-all cursor-pointer shadow-sm group"
             >
-              TWITTER / X
+              <Twitter className="w-4 h-4 group-hover:scale-110 transition-transform" />
             </a>
             <a
               href="https://wa.me/254723821985"
               target="_blank"
               rel="noopener noreferrer"
-              className="hover:text-[#7BF0D4] transition-colors text-emerald-400"
+              aria-label="WhatsApp"
+              className="w-9 h-9 rounded-full bg-teal-900/40 hover:bg-[#0C685E] border border-teal-700/50 hover:border-[#7BF0D4] text-[#9CB3AD] hover:text-[#7BF0D4] flex items-center justify-center transition-all cursor-pointer shadow-sm group"
             >
-              WHATSAPP
+              <MessageCircle className="w-4 h-4 group-hover:scale-110 transition-transform" />
             </a>
           </div>
 

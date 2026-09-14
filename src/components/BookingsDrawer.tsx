@@ -29,7 +29,7 @@ export const BookingsDrawer: React.FC<BookingsDrawerProps> = ({
       `DTSTAMP:${new Date().toISOString().replace(/[-:]/g, '').split('.')[0]}Z`,
       `SUMMARY:LA Consultancy Briefing with ${partner} (${b.referenceNumber})`,
       `DESCRIPTION:Executive strategy consultation with ${partner} for ${b.companyName}. Protected by mutual NDA.`,
-      'LOCATION:LA Consultancy Century City Flagship / Secure Video Conference',
+      'LOCATION:Linda Aredo Consultancy Executive Suite, Nairobi / Secure Video Conference',
       'STATUS:CONFIRMED',
       'END:VEVENT',
       'END:VCALENDAR'
@@ -150,7 +150,7 @@ export const BookingsDrawer: React.FC<BookingsDrawerProps> = ({
           {/* Footer */}
           <div className="p-4 border-t border-slate-200 bg-slate-50 text-center">
             <p className="text-[11px] text-slate-500">
-              Need immediate assistance? Call our Century City concierge at (310) 844-3200.
+              Need immediate assistance? Call our Nairobi advisory desk at +254 723 821985.
             </p>
           </div>
 

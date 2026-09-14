@@ -37,7 +37,7 @@ export const BookingModal: React.FC<BookingModalProps> = ({
   const [practiceId, setPracticeId] = useState<string>(initialPracticeId || PRACTICE_AREAS[0].id);
   const [partnerId, setPartnerId] = useState<string>(initialPartnerId || PARTNERS[0].id);
   const [selectedDate, setSelectedDate] = useState<string>('');
-  const [selectedTime, setSelectedTime] = useState<string>('10:00 AM PST');
+  const [selectedTime, setSelectedTime] = useState<string>('10:00 AM EAT');
   
   // Form fields
   const [clientName, setClientName] = useState<string>('');
@@ -45,7 +45,6 @@ export const BookingModal: React.FC<BookingModalProps> = ({
   const [phone, setPhone] = useState<string>('');
   const [companyName, setCompanyName] = useState<string>('');
   const [companyRole, setCompanyRole] = useState<string>('Founder / C-Suite');
-  const [companyStage, setCompanyStage] = useState<string>('$20M – $100M ARR');
   const [agendaSummary, setAgendaSummary] = useState<string>(initialNotes || '');
   const [hasNDA, setHasNDA] = useState<boolean>(true);
   const [errorMsg, setErrorMsg] = useState<string>('');
@@ -72,11 +71,11 @@ export const BookingModal: React.FC<BookingModalProps> = ({
   if (!isOpen) return null;
 
   const timeSlots = [
-    '09:00 AM PST',
-    '10:30 AM PST',
-    '01:30 PM PST',
-    '03:00 PM PST',
-    '04:30 PM PST'
+    '09:00 AM EAT',
+    '10:30 AM EAT',
+    '01:30 PM EAT',
+    '03:00 PM EAT',
+    '04:30 PM EAT'
   ];
 
   const handleNextToStep2 = () => {
@@ -105,10 +104,9 @@ export const BookingModal: React.FC<BookingModalProps> = ({
       referenceNumber: `LAC-${randomSuffix}`,
       clientName,
       email,
-      phone: phone || '+1 (310) 555-0199',
+      phone: phone || '+254 723 821985',
       companyName,
       companyRole,
-      companyStage,
       practiceId,
       partnerId,
       selectedDate,
@@ -135,7 +133,7 @@ export const BookingModal: React.FC<BookingModalProps> = ({
       `DTSTAMP:${new Date().toISOString().replace(/[-:]/g, '').split('.')[0]}Z`,
       `SUMMARY:LA Consultancy Briefing with ${partner} (${b.referenceNumber})`,
       `DESCRIPTION:Executive strategy consultation with ${partner} for ${b.companyName}. Protected by mutual NDA.`,
-      'LOCATION:LA Consultancy Century City Flagship / Secure Video Conference',
+      'LOCATION:Linda Aredo Consultancy Executive Suite, Nairobi / Secure Video Conference',
       'STATUS:CONFIRMED',
       'END:VEVENT',
       'END:VCALENDAR'
@@ -245,11 +243,13 @@ export const BookingModal: React.FC<BookingModalProps> = ({
                     >
                       <div>
                         <div className="text-sm font-bold">{p.title}</div>
-                        <div className="text-xs text-slate-500">{p.tagline}</div>
+                        <div className="text-xs text-slate-500 mt-0.5">{p.tagline}</div>
                       </div>
-                      <div className="text-xs font-bold text-amber-700 shrink-0 ml-3">
-                        {p.engagementLength}
-                      </div>
+                      {practiceId === p.id && (
+                        <div className="shrink-0 ml-3 text-amber-700">
+                          <CheckCircle2 className="w-5 h-5 text-amber-600" />
+                        </div>
+                      )}
                     </button>
                   ))}
                 </div>
@@ -259,27 +259,32 @@ export const BookingModal: React.FC<BookingModalProps> = ({
                 <label className="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-2">
                   Designated Partner Lead
                 </label>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                <div className="w-full">
                   {PARTNERS.map((partner) => (
-                    <button
+                    <div
                       key={partner.id}
                       id={`booking-select-partner-${partner.id}`}
-                      type="button"
-                      onClick={() => setPartnerId(partner.id)}
-                      className={`p-3 rounded-xl border text-left transition-all cursor-pointer ${
-                        partnerId === partner.id
-                          ? 'bg-slate-900 border-slate-900 text-white shadow-sm'
-                          : 'bg-white border-slate-200 text-slate-700 hover:border-slate-300'
-                      }`}
+                      className="p-4 rounded-xl border border-slate-900 bg-slate-900 text-white shadow-sm flex flex-col sm:flex-row sm:items-center justify-between gap-3"
                     >
-                      <div className="text-xs font-bold">{partner.name}</div>
-                      <div className={`text-[11px] mt-0.5 ${partnerId === partner.id ? 'text-amber-300' : 'text-slate-500'}`}>
-                        {partner.role}
+                      <div>
+                        <div className="flex items-center gap-2">
+                          <div className="text-sm font-bold text-white">{partner.name}</div>
+                          <span className="text-[10px] font-semibold px-2 py-0.5 rounded-full bg-emerald-800/80 text-emerald-200 border border-emerald-600/40">
+                            Principal Consultant
+                          </span>
+                        </div>
+                        <div className="text-xs text-amber-300 font-medium mt-0.5">
+                          {partner.role} • {partner.practiceArea}
+                        </div>
+                        <div className="text-[11px] text-slate-300 mt-1">
+                          {partner.education}
+                        </div>
                       </div>
-                      <div className={`text-[10px] mt-1 line-clamp-1 ${partnerId === partner.id ? 'text-slate-300' : 'text-slate-400'}`}>
-                        {partner.education}
+                      <div className="shrink-0 flex items-center gap-1.5 text-xs text-emerald-300 font-semibold bg-emerald-950/60 px-3 py-1.5 rounded-lg border border-emerald-500/30 self-start sm:self-auto">
+                        <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400" />
+                        <span>Lead Advisory Partner</span>
                       </div>
-                    </button>
+                    </div>
                   ))}
                 </div>
               </div>
@@ -301,7 +306,7 @@ export const BookingModal: React.FC<BookingModalProps> = ({
             <div className="space-y-6">
               <div>
                 <label className="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-2">
-                  Select Consultation Date (Pacific Standard Time)
+                  Select Consultation Date (East Africa Time • EAT)
                 </label>
                 <input
                   id="booking-date-input"
@@ -312,7 +317,7 @@ export const BookingModal: React.FC<BookingModalProps> = ({
                   className="w-full px-4 py-2.5 rounded-lg border border-slate-300 text-sm font-medium text-slate-800 focus:outline-none focus:border-slate-900"
                 />
                 <p className="text-[11px] text-slate-500 mt-1">
-                  Briefings conducted via encrypted video or at our Century City boardroom.
+                  Briefings conducted via encrypted video or at our Nairobi executive advisory suite.
                 </p>
               </div>
 
@@ -436,37 +441,18 @@ export const BookingModal: React.FC<BookingModalProps> = ({
                 </div>
               </div>
 
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                <div>
-                  <label className="block text-xs font-bold text-slate-700 mb-1">
-                    Annual Revenue Tier
-                  </label>
-                  <select
-                    id="client-revenue-select"
-                    value={companyStage}
-                    onChange={(e) => setCompanyStage(e.target.value)}
-                    className="w-full px-3.5 py-2 text-xs rounded-lg border border-slate-300 focus:outline-none focus:border-slate-900 bg-white"
-                  >
-                    <option value="<$10M ARR">Early Growth (&lt;$10M ARR)</option>
-                    <option value="$10M – $50M ARR">$10M – $50M ARR</option>
-                    <option value="$50M – $200M ARR">$50M – $200M ARR</option>
-                    <option value="$200M+ Enterprise">$200M+ Enterprise / Global</option>
-                  </select>
-                </div>
-
-                <div>
-                  <label className="block text-xs font-bold text-slate-700 mb-1">
-                    Contact Telephone (Optional)
-                  </label>
-                  <input
-                    id="client-phone-input"
-                    type="tel"
-                    placeholder="+1 (310) 000-0000"
-                    value={phone}
-                    onChange={(e) => setPhone(e.target.value)}
-                    className="w-full px-3.5 py-2 text-xs rounded-lg border border-slate-300 focus:outline-none focus:border-slate-900"
-                  />
-                </div>
+              <div>
+                <label className="block text-xs font-bold text-slate-700 mb-1">
+                  Contact Telephone (Optional)
+                </label>
+                <input
+                  id="client-phone-input"
+                  type="tel"
+                  placeholder="+254 700 000000 / +1 (310) 000-0000"
+                  value={phone}
+                  onChange={(e) => setPhone(e.target.value)}
+                  className="w-full px-3.5 py-2 text-xs rounded-lg border border-slate-300 focus:outline-none focus:border-slate-900"
+                />
               </div>
 
               <div>

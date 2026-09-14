@@ -69,7 +69,7 @@ export interface ConsultationBooking {
   phone: string;
   companyName: string;
   companyRole: string;
-  companyStage: string;
+  companyStage?: string;
   practiceId: string;
   partnerId: string;
   selectedDate: string;
