@@ -1,10 +1,14 @@
 import React, { useState } from 'react';
-import { OFFICE_LOCATIONS } from '../data/consultancyData';
-import { MapPin, Phone, Mail, Clock, Send, CheckCircle2, Shield } from 'lucide-react';
+import { Mail, Send, CheckCircle2, MessageCircle, Calendar } from 'lucide-react';
 
-export const ContactSection: React.FC = () => {
+interface ContactSectionProps {
+  onOpenBooking?: () => void;
+}
+
+export const ContactSection: React.FC<ContactSectionProps> = ({ onOpenBooking }) => {
   const [inquiryName, setInquiryName] = useState('');
   const [inquiryEmail, setInquiryEmail] = useState('');
+  const [inquiryPhone, setInquiryPhone] = useState('');
   const [inquiryCompany, setInquiryCompany] = useState('');
   const [inquiryMessage, setInquiryMessage] = useState('');
   const [submitted, setSubmitted] = useState(false);
@@ -16,77 +20,74 @@ export const ContactSection: React.FC = () => {
   };
 
   return (
-    <section id="contact" className="py-20 px-4 sm:px-8 bg-white border-b border-slate-200">
+    <section id="contact" className="py-16 px-4 sm:px-8 bg-white border-b border-slate-200">
       <div className="max-w-7xl mx-auto">
-        
-        {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-14">
-          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-slate-100 border border-slate-200 text-slate-700 text-xs font-semibold mb-3">
-            <MapPin className="w-3.5 h-3.5 text-amber-600" />
-            <span>Southern California Presence</span>
-          </div>
-          <h2 className="font-cinzel text-3xl sm:text-4xl font-bold tracking-tight text-slate-900 mb-3">
-            Los Angeles Executive Offices & Inquiries
+        <div className="text-center max-w-3xl mx-auto mb-10">
+          <h2 className="font-cinzel text-3xl sm:text-4xl font-bold tracking-tight text-slate-900">
+            Contact Us
           </h2>
-          <p className="text-slate-600 text-sm sm:text-base">
-            Consultations held at our Los Angeles boardrooms or via secure private communications. All inquiries subject to preliminary conflicts check and non-disclosure agreement.
-          </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
           
-          {/* Office Locations */}
-          <div className="lg:col-span-6 space-y-4">
-            <h3 className="text-xs font-bold uppercase tracking-wider text-slate-400 mb-4">
-              Regional Boardrooms & Innovation Hubs
-            </h3>
+          {/* Direct Channels */}
+          <div className="lg:col-span-5 p-7 rounded-2xl bg-slate-900 text-white border border-slate-800 space-y-6">
+            <div>
+              <h3 className="font-cinzel text-xl font-bold text-white mb-2">
+                Direct Executive Channels
+              </h3>
+              <p className="text-xs text-slate-400">
+                Connect directly with our advisory office via encrypted WhatsApp messaging, corporate email, or schedule a formal strategic briefing.
+              </p>
+            </div>
 
-            {OFFICE_LOCATIONS.map((loc, idx) => (
-              <div
-                key={idx}
-                className="p-5 rounded-xl border border-slate-200 bg-slate-50/70 hover:border-slate-300 transition-all space-y-2"
+            <div className="grid grid-cols-1 gap-3 text-xs">
+              <a
+                href="https://wa.me/254723821985"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-3 p-3.5 rounded-xl bg-emerald-950/60 border border-emerald-500/40 text-emerald-200 hover:bg-emerald-900/60 transition-colors"
               >
-                <div className="flex items-center justify-between">
-                  <h4 className="font-cinzel text-base font-bold text-slate-900">
-                    {loc.name}
-                  </h4>
-                  <span className="text-[10px] font-bold px-2 py-0.5 rounded bg-slate-200 text-slate-700">
-                    Primary Practice
-                  </span>
+                <MessageCircle className="w-5 h-5 text-emerald-400 shrink-0" />
+                <div>
+                  <div className="font-semibold text-white text-sm">WhatsApp Chat</div>
+                  <div className="text-xs text-emerald-300 mt-0.5">+254 723 821985</div>
                 </div>
+              </a>
 
-                <div className="text-xs text-slate-600 space-y-1">
-                  <div className="flex items-start gap-2">
-                    <MapPin className="w-3.5 h-3.5 text-amber-600 shrink-0 mt-0.5" />
-                    <span>{loc.address}, {loc.city}</span>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <Phone className="w-3.5 h-3.5 text-amber-600 shrink-0" />
-                    <a href={`tel:${loc.phone.replace(/[^0-9+]/g, '')}`} className="hover:text-slate-900 font-medium">
-                      {loc.phone}
-                    </a>
-                  </div>
-                  <div className="flex items-center gap-2 text-slate-500 text-[11px]">
-                    <Clock className="w-3.5 h-3.5 text-slate-400 shrink-0" />
-                    <span>{loc.hours}</span>
-                  </div>
+              <a
+                href="mailto:info@laconsultancy.co.ke"
+                className="flex items-center gap-3 p-3.5 rounded-xl bg-slate-800 border border-slate-700 text-slate-200 hover:bg-slate-750 transition-colors"
+              >
+                <Mail className="w-5 h-5 text-amber-400 shrink-0" />
+                <div>
+                  <div className="font-semibold text-white text-sm">Email Advisory</div>
+                  <div className="text-xs text-slate-300 mt-0.5">info@laconsultancy.co.ke</div>
                 </div>
+              </a>
+            </div>
+
+            {onOpenBooking && (
+              <div className="pt-4 border-t border-slate-800 space-y-2">
+                <div className="text-xs text-slate-400">
+                  Prefer to reserve a designated consultation slot?
+                </div>
+                <button
+                  onClick={onOpenBooking}
+                  className="w-full inline-flex items-center justify-center gap-2 px-4 py-3 rounded-xl bg-amber-500 hover:bg-amber-400 text-slate-950 text-xs font-bold transition-all cursor-pointer shadow-sm"
+                >
+                  <Calendar className="w-4 h-4" />
+                  <span>Book Strategic Briefing</span>
+                </button>
               </div>
-            ))}
+            )}
           </div>
 
           {/* Confidential Inquiry Form */}
-          <div className="lg:col-span-6 bg-slate-900 text-white rounded-2xl p-7 sm:p-8 shadow-xl border border-slate-800">
-            <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-amber-400 mb-2">
-              <Shield className="w-3.5 h-3.5" />
-              <span>Direct Partner RFP & Inquiry Portal</span>
-            </div>
-            <h3 className="font-cinzel text-xl sm:text-2xl font-bold mb-2">
-              Submit an Executive Brief
+          <div className="lg:col-span-7 bg-slate-900 text-white rounded-2xl p-7 sm:p-8 shadow-xl border border-slate-800">
+            <h3 className="font-cinzel text-xl sm:text-2xl font-bold mb-6">
+              Submit an Executive Inquiry
             </h3>
-            <p className="text-xs text-slate-400 mb-6">
-              Our Senior Managing Partner reviews all confidential briefs within 4 business hours.
-            </p>
 
             {submitted ? (
               <div className="p-6 rounded-xl bg-slate-950 border border-slate-800 text-center space-y-3">
@@ -94,16 +95,17 @@ export const ContactSection: React.FC = () => {
                   <CheckCircle2 className="w-6 h-6" />
                 </div>
                 <h4 className="font-cinzel text-lg font-bold text-white">
-                  Brief Received in Confidence
+                  Inquiry Received in Confidence
                 </h4>
                 <p className="text-xs text-slate-300">
-                  Thank you, {inquiryName}. An executive summary confirmation has been dispatched to {inquiryEmail}. A designated partner lead will connect directly.
+                  Thank you, {inquiryName}. Your brief has been received. Our advisory team will connect directly at {inquiryEmail} to discuss alignment and next steps.
                 </p>
                 <button
                   onClick={() => {
                     setSubmitted(false);
                     setInquiryName('');
                     setInquiryEmail('');
+                    setInquiryPhone('');
                     setInquiryCompany('');
                     setInquiryMessage('');
                   }}
@@ -123,7 +125,7 @@ export const ContactSection: React.FC = () => {
                       id="inquiry-name"
                       type="text"
                       required
-                      placeholder="e.g. Marcus Sterling"
+                      placeholder="e.g. David Mutua"
                       value={inquiryName}
                       onChange={(e) => setInquiryName(e.target.value)}
                       className="w-full px-3.5 py-2.5 rounded-lg bg-slate-950 border border-slate-700 text-white placeholder-slate-500 focus:outline-none focus:border-amber-400"
@@ -138,7 +140,7 @@ export const ContactSection: React.FC = () => {
                       id="inquiry-email"
                       type="email"
                       required
-                      placeholder="msterling@enterprise.com"
+                      placeholder="dmutua@organization.co.ke"
                       value={inquiryEmail}
                       onChange={(e) => setInquiryEmail(e.target.value)}
                       className="w-full px-3.5 py-2.5 rounded-lg bg-slate-950 border border-slate-700 text-white placeholder-slate-500 focus:outline-none focus:border-amber-400"
@@ -146,29 +148,45 @@ export const ContactSection: React.FC = () => {
                   </div>
                 </div>
 
-                <div>
-                  <label className="block text-slate-300 font-medium mb-1">
-                    Company / Fund Name
-                  </label>
-                  <input
-                    id="inquiry-company"
-                    type="text"
-                    placeholder="e.g. Horizon Pacific Capital"
-                    value={inquiryCompany}
-                    onChange={(e) => setInquiryCompany(e.target.value)}
-                    className="w-full px-3.5 py-2.5 rounded-lg bg-slate-950 border border-slate-700 text-white placeholder-slate-500 focus:outline-none focus:border-amber-400"
-                  />
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <div>
+                    <label className="block text-slate-300 font-medium mb-1">
+                      Telephone / WhatsApp
+                    </label>
+                    <input
+                      id="inquiry-phone"
+                      type="tel"
+                      placeholder="+254 700 000000"
+                      value={inquiryPhone}
+                      onChange={(e) => setInquiryPhone(e.target.value)}
+                      className="w-full px-3.5 py-2.5 rounded-lg bg-slate-950 border border-slate-700 text-white placeholder-slate-500 focus:outline-none focus:border-amber-400"
+                    />
+                  </div>
+
+                  <div>
+                    <label className="block text-slate-300 font-medium mb-1">
+                      Company / Institution Name
+                    </label>
+                    <input
+                      id="inquiry-company"
+                      type="text"
+                      placeholder="e.g. Apex Holdings East Africa"
+                      value={inquiryCompany}
+                      onChange={(e) => setInquiryCompany(e.target.value)}
+                      className="w-full px-3.5 py-2.5 rounded-lg bg-slate-950 border border-slate-700 text-white placeholder-slate-500 focus:outline-none focus:border-amber-400"
+                    />
+                  </div>
                 </div>
 
                 <div>
                   <label className="block text-slate-300 font-medium mb-1">
-                    Executive Scope Summary / Inquiry *
+                    Strategic Scope Summary / Inquiry *
                   </label>
                   <textarea
                     id="inquiry-message"
                     required
                     rows={4}
-                    placeholder="Summarize the transaction, growth initiative, or operational restructuring scope..."
+                    placeholder="Describe your organization's focus (e.g., leadership alignment, executive coaching, governance advisory, operational optimization)..."
                     value={inquiryMessage}
                     onChange={(e) => setInquiryMessage(e.target.value)}
                     className="w-full px-3.5 py-2.5 rounded-lg bg-slate-950 border border-slate-700 text-white placeholder-slate-500 focus:outline-none focus:border-amber-400"
@@ -182,7 +200,7 @@ export const ContactSection: React.FC = () => {
                     className="w-full inline-flex items-center justify-center gap-2 py-3 px-4 rounded-xl bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold text-xs shadow-md transition-all cursor-pointer"
                   >
                     <Send className="w-3.5 h-3.5" />
-                    <span>Submit Confidential Brief</span>
+                    <span>Submit</span>
                   </button>
                 </div>
               </form>

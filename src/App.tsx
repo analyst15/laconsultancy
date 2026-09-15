@@ -9,6 +9,7 @@ import { HeroSection } from './components/HeroSection';
 import { AboutSection } from './components/AboutSection';
 import { FounderProfileSection } from './components/FounderProfileSection';
 import { PracticesSection } from './components/PracticesSection';
+import { ContactSection } from './components/ContactSection';
 import { Footer } from './components/Footer';
 import { BookingModal } from './components/BookingModal';
 import { BookingsDrawer } from './components/BookingsDrawer';
@@ -133,6 +134,11 @@ export default function App() {
         {/* Practice Areas ending with the Need a Customized Consulting or Coaching Program? CTA */}
         <PracticesSection
           onSelectPractice={handleSelectPractice}
+        />
+
+        {/* Contact Us Section */}
+        <ContactSection
+          onOpenBooking={() => handleOpenBooking()}
         />
       </main>
 
