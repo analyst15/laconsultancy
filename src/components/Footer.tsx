@@ -254,9 +254,21 @@ export const Footer: React.FC = () => {
         {/* Sub-Footer / Bottom Bar */}
         <div className="pt-8 flex flex-col md:flex-row items-center justify-between gap-6">
           
-          {/* Copyright */}
-          <div className="text-xs text-white">
-            Copyright © {new Date().getFullYear()} Linda Aredo Consultancy. All rights reserved.
+          {/* Copyright and Credits */}
+          <div className="text-xs text-white flex flex-col sm:flex-row items-center gap-2 sm:gap-3 text-center sm:text-left">
+            <span>Copyright © {new Date().getFullYear()} Linda Aredo Consultancy. All rights reserved.</span>
+            <span className="hidden sm:inline text-teal-600">•</span>
+            <span className="text-[#9CB3AD]">
+              Website by{' '}
+              <a
+                href="https://techninja.co.ke/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-[#7BF0D4] hover:text-white font-semibold transition-colors no-underline"
+              >
+                Tech Ninja
+              </a>
+            </span>
           </div>
 
           {/* Social Links Icons */}
