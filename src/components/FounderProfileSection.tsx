@@ -72,7 +72,7 @@ export const FounderProfileSection: React.FC<FounderProfileSectionProps> = ({ on
                 <div className="relative mx-auto lg:mx-0 max-w-sm">
                   <div className="relative overflow-hidden rounded-2xl border-2 border-teal-500/30 shadow-2xl bg-slate-800">
                     <img
-                      src="https://firebasestorage.googleapis.com/v0/b/keiyian-farm.firebasestorage.app/o/LA%20Consultancy%2FLinkedIn.jpeg?alt=media&token=28bea3b7-a1d0-46ed-b484-f9dc5b9d7b3d"
+                      src="https://firebasestorage.googleapis.com/v0/b/keiyian-farm.firebasestorage.app/o/LA%20Consultancy%2Fimage0.jpeg?alt=media&token=d0909843-f6aa-48c9-9643-b8b1c955fc20"
                       alt="Linda Aredo - Founder & CEO"
                       className="w-full h-80 sm:h-96 object-cover object-top hover:scale-105 transition-transform duration-700"
                       referrerPolicy="no-referrer"
