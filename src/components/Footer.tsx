@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { MapPin, Phone, Mail, ArrowUp, Send, CheckCircle2, Linkedin, Facebook, Twitter, MessageCircle } from 'lucide-react';
+import { MapPin, Phone, Mail, ArrowUp, Send, CheckCircle2, Linkedin, Facebook, Instagram, MessageCircle } from 'lucide-react';
 
 export const Footer: React.FC = () => {
   const [email, setEmail] = useState('');
@@ -135,6 +135,14 @@ export const Footer: React.FC = () => {
                   className="hover:text-[#7BF0D4] transition-colors cursor-pointer text-left"
                 >
                   Core Values
+                </button>
+              </li>
+              <li>
+                <button
+                  onClick={() => scrollToSection('financial-journal')}
+                  className="hover:text-[#7BF0D4] transition-colors cursor-pointer text-left"
+                >
+                  Financial Wellness Journal
                 </button>
               </li>
               <li>
@@ -292,13 +300,29 @@ export const Footer: React.FC = () => {
               <Facebook className="w-4 h-4 group-hover:scale-110 transition-transform" />
             </a>
             <a
-              href="https://twitter.com"
+              href="https://www.instagram.com/laconsultancyke/"
               target="_blank"
               rel="noopener noreferrer"
-              aria-label="Twitter / X"
+              aria-label="Instagram"
               className="w-9 h-9 rounded-full bg-teal-900/40 hover:bg-[#0C685E] border border-teal-700/50 hover:border-[#7BF0D4] text-[#9CB3AD] hover:text-[#7BF0D4] flex items-center justify-center transition-all cursor-pointer shadow-sm group"
             >
-              <Twitter className="w-4 h-4 group-hover:scale-110 transition-transform" />
+              <Instagram className="w-4 h-4 group-hover:scale-110 transition-transform" />
+            </a>
+            <a
+              href="https://x.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="X"
+              className="w-9 h-9 rounded-full bg-teal-900/40 hover:bg-[#0C685E] border border-teal-700/50 hover:border-[#7BF0D4] text-[#9CB3AD] hover:text-[#7BF0D4] flex items-center justify-center transition-all cursor-pointer shadow-sm group"
+            >
+              <svg
+                className="w-3.5 h-3.5 group-hover:scale-110 transition-transform"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+                aria-hidden="true"
+              >
+                <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+              </svg>
             </a>
             <a
               href="https://wa.me/254723821985"

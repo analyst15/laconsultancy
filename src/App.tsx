@@ -9,6 +9,7 @@ import { HeroSection } from './components/HeroSection';
 import { AboutSection } from './components/AboutSection';
 import { FounderProfileSection } from './components/FounderProfileSection';
 import { PracticesSection } from './components/PracticesSection';
+import { FinancialJournalSection } from './components/FinancialJournalSection';
 import { ContactSection } from './components/ContactSection';
 import { Footer } from './components/Footer';
 import { BookingModal } from './components/BookingModal';
@@ -135,6 +136,9 @@ export default function App() {
         <PracticesSection
           onSelectPractice={handleSelectPractice}
         />
+
+        {/* Financial Wellness Journals Section */}
+        <FinancialJournalSection />
 
         {/* Contact Us Section */}
         <ContactSection
